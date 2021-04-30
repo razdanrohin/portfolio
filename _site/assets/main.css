@@ -128,7 +128,9 @@ footer .pure-menu-link:hover {
 }
 
 .brand-photo {
-  margin: 10px 0;
+  /*margin: 10px 0;*/
+  width: 100%;
+  height: auto;
 }
 
 .brand-title,

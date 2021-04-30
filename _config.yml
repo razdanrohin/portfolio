@@ -5,7 +5,7 @@ description:
              at NC State University, Raleigh, North Carolina.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-repository: "https://purelog.netlify.app"
+repository: "https://github.com/razdanrohin/portfolio"
 
 github: razdanrohin
 header_image: assets/profile.png
