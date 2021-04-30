@@ -326,7 +326,7 @@ footer .pure-menu-link:hover {
 
 @media (min-width: 48em) {
   .sm-display {
-    display: none;
+    display: inline;
   }
 
   .content {
@@ -349,7 +349,7 @@ footer .pure-menu-link:hover {
   }
 
   .sidebar {
-    position: fixed;
+    position: absolute;
     height: 100vh;
   }
 
@@ -368,7 +368,7 @@ footer .pure-menu-link:hover {
 
 @media screen and (max-width: 48em) {
   .md-display {
-    display: none;
+    display: inline;
   }
 
   .brand-title,
