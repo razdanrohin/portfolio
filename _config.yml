@@ -18,19 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "Purelog: for Writers"
-email: mail@brennanbrown.ca
-description: >- # this means to ignore newlines until "baseurl:"
-  A responsive sidebar Jekyll theme using the Pure.css framework, 
-  designed for writers and bloggers of all kinds.
+title: "Rohin Razdan"
+email: rrazdan2@ncsu.edu
+description:
+             A graduate student in Computer Engineering <br />
+             at NC State University, Raleigh, North Carolina.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://purelog.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com
-repository: brennanbrown/purelog
-twitter: brennankbrown
-github: brennanbrown
-
+repository: razdanrohin/portfolio
+github: razdanrohin
 header_image: assets/profile.png
-
 google_analytics:
 comments: true
 disqus: purelog-jekyll
