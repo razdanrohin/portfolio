@@ -1,47 +1,25 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: "Rohin Razdan"
 email: rrazdan2@ncsu.edu
 description:
              A graduate student in Computer Engineering <br />
              at NC State University, Raleigh, North Carolina.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://purelog.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com
-repository: razdanrohin/portfolio
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+repository: "https://purelog.netlify.app"
+
 github: razdanrohin
-header_image: assets/self.png
-google_analytics:
-comments: true
+header_image: assets/profile.png
+
+comments: false
 disqus: purelog-jekyll
 
-author: Brennan K. Brown
-author_bio: >-
-  Hey there! 😄 My name is Brennan, I'm a 24-year-old Métis web developer and 
-  content strategist from Winnipeg, Manitoba and currently reside in Calgary, 
-  Alberta. I've recently compeleted a Full Stack Developer Program at EvolveU, 
-  and I'm looking to help those that need web development work done, or 
-  searching for ideas and management for their next content project.
-author_pic: https://brennanbrown.ca/img/avatar.png
+author: Rohin Razdan
+author_bio: >- 
+     My Bio Here
 
-paginate: 4
+author_pic: assets/profile.png
+
+paginate: 5
 paginate_path: "/:num/"
 
 markdown: kramdown
@@ -64,8 +42,8 @@ defaults:
       type: "posts" # previously `post` in Jekyll 2.2.
     values:
       layout: "post"
-      author: Brennan K. Brown
-      avatar: assets/profile-sm.png
+      author:
+      avatar: assets/self.png
   - scope:
       path: ""
       type: notes
