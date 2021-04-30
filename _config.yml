@@ -27,7 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://purelog.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com
 repository: razdanrohin/portfolio
 github: razdanrohin
-header_image: assets/profile.png
+header_image: assets/self.png
 google_analytics:
 comments: true
 disqus: purelog-jekyll
