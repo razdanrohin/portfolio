@@ -1,0 +1,61 @@
+I"L	<p>In this project, the accelerator and the LEDs were peripherals that shared the same I2C bus for communication. The Accelerator movement in x-y-z directions lit rgb respectively.</p>
+
+<p>Initially the code used Busy-Wait for the accelerator which prevents the CPU from doing other tasks, thus the efficiency of operation is compromised initially.Initial code uses Busy-Wait which prevents the CPU from doing other tasks, thus the efficiency of operation is compromised initially.
+Why dit we use RTOS?</p>
+
+<ul>
+  <li>RTOS uses more memory</li>
+  <li>We may need a lightweight implementation</li>
+  <li>This could be transferred to a cheaper board</li>
+  <li>May need to add other parts of code in</li>
+  <li>RTOS may delay response, But this may not matter based on human eye
+How did we fix it: Compare performance between Blocking and FSM</li>
+  <li>First: Mode 1 - blocking (checking initial responsiveness, with Busy-Wait)</li>
+  <li>Set debug bits and connect logic analyzers to collect data on runtime of each task.</li>
+  <li>Second: Mode 2 - FSM w/ run-to-completion scheduler (Without any Busy-Wait OR RTOS)</li>
+  <li>Write/configure a FSM mode</li>
+  <li>Create CFG of task to plan FSM conversion</li>
+  <li>Configure tasks to run periodically</li>
+  <li>Create Handshake w/ I2C Msg: (init g_I2C_Msg.Status = IDLE)</li>
+  <li>if Status is IDLE return unless Command is READ or WRITE.</li>
+  <li>Update Status to READING or WRITING if needed.</li>
+  <li>Begin I2C &amp; begin FSM.</li>
+  <li>Update Status to READ_COMPLETE or WRITE_COMPLETE</li>
+</ul>
+
+<p>FSM Implementation</p>
+<ul>
+  <li>Breaks down the TMS into small pieces that can communicate within each other using the shared data structure (g_I2C_Msg). In Busy wait we have to run unnecessary functionality too. But in an FSM functionality which requires the processor is given the priority.</li>
+</ul>
+
+<p>Message format – 7-bit address followed by data:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Slave Device Address</td>
+      <td> </td>
+      <td> </td>
+      <td>Data Byte</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>AD7 AD6 AD5 AD4 AD3 AD2 AD1</td>
+      <td>R/W</td>
+      <td>ACK</td>
+      <td>D7 D6 D5 D4 D3 D2 D1 D0</td>
+      <td>ACK</td>
+      <td>Stop</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

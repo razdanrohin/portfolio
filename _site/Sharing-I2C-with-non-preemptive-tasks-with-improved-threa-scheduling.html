@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Jekyll">
+    <link rel="license" href="LICENSE">
+
+    <meta name="application-name" content="Rohin Razdan">
+    <meta name="theme-color" content="">
+    <link rel="archives" href="http://localhost:4000/archives/">
+
+    <meta name="robots" content="index,follow"> <!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow"><!-- Google Specific    -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/code.css">
+    <script src="https://kit.fontawesome.com/e9dddf84a6.js" crossorigin="anonymous"></script><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Sharing I2c With Non Preemptive Tasks With Improved Threa Scheduling | Rohin Razdan</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Sharing I2c With Non Preemptive Tasks With Improved Threa Scheduling" />
+<meta name="author" content="Rohin Razdan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this project, the accelerator and the LEDs were peripherals that shared the same I2C bus for communication. The Accelerator movement in x-y-z directions lit rgb respectively." />
+<meta property="og:description" content="In this project, the accelerator and the LEDs were peripherals that shared the same I2C bus for communication. The Accelerator movement in x-y-z directions lit rgb respectively." />
+<link rel="canonical" href="http://localhost:4000/Sharing-I2C-with-non-preemptive-tasks-with-improved-threa-scheduling" />
+<meta property="og:url" content="http://localhost:4000/Sharing-I2C-with-non-preemptive-tasks-with-improved-threa-scheduling" />
+<meta property="og:site_name" content="Rohin Razdan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-01T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sharing I2c With Non Preemptive Tasks With Improved Threa Scheduling" />
+<script type="application/ld+json">
+{"datePublished":"2019-10-01T00:00:00-04:00","@type":"BlogPosting","dateModified":"2019-10-01T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Sharing-I2C-with-non-preemptive-tasks-with-improved-threa-scheduling"},"author":{"@type":"Person","name":"Rohin Razdan"},"description":"In this project, the accelerator and the LEDs were peripherals that shared the same I2C bus for communication. The Accelerator movement in x-y-z directions lit rgb respectively.","url":"http://localhost:4000/Sharing-I2C-with-non-preemptive-tasks-with-improved-threa-scheduling","headline":"Sharing I2c With Non Preemptive Tasks With Improved Threa Scheduling","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rohin Razdan" /></head>
+<body>
+
+    <div id="layout" class="pure-g"><aside class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="sidebar-info">
+        <a href="/">
+            <span hidden>Rohin Razdan
+                Header Image</span>
+            <img class="brand-photo" src="http://localhost:4000/assets/profile.png" alt="Photo of Rohin Razdan" />
+        </a>
+        <h1 class="brand-title">
+            <a href="/">Rohin Razdan</a>
+        </h1>
+        <h2 class="brand-tagline">A graduate student in Computer Engineering <br /> at NC State University, Raleigh, North Carolina.</h2>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:4000">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:4000/notes">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:4000/journals">Journal</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<div class="content pure-u-1 pure-u-md-3-4">
+            <div class="md-display">
+                <h1>
+                    <a class="jekyll-header" href="/">Welcome to my portfolio!</a>
+                </h1><div class="menu">
+    <div class="about">
+        <a href="/about">
+            <i class="fas fa-signature"></i>
+            About
+        </a>
+    </div>
+    <div class="hashtags">
+        <a href="/tags">
+            <i class="fas fa-hashtag"></i>
+            Tags
+        </a>
+    </div>
+    <div class="categories">
+        <a href="/categories">
+            <i class="far fa-folder-open"></i>
+            Categories
+        </a>
+    </div>
+    <div class="archive">
+        <a href="/archive">
+            <i class="fas fa-archive"></i>
+            Archive
+        </a>
+    </div>
+</div>
+<div id="search">
+    <label>
+        <span class="search-icon">🔎</span>
+        <input autocomplete="off" id="search-input" oninput="changeResultContainerDisp(this.value)" placeholder="Search all articles..." type="text"/>
+    </label>
+
+    <ul id="results-container" style="display: none"></ul>
+</div>
+<script src="/assets/simple-jekyll-search.js"></script>
+<script>
+    function changeResultContainerDisp(val) {
+        if (val) {
+            document
+                .getElementById("results-container")
+                .style
+                .display = "block";
+            document.getElementById("search-input").addEventListener("blur", function () {
+                document.addEventListener("click", function (event) {
+                    var isClickInside = document.getElementById("results-container").contains(event.target);
+                    if (! isClickInside) {
+                        document
+                            .getElementById("results-container")
+                            .style
+                            .display = "none";
+                    }
+                })
+            })
+        } else {
+            document
+                .getElementById("results-container")
+                .style
+                .display = "none";
+        }
+    }
+    var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        json: "/search.json",
+        searchResultTemplate: "<li class='search_res' style='list-style: none;'><a href='http://localhost:4000{url}' color: #555555;'><p><strong>></strong> {title}</p></a></li>",
+        noResultsText: "No results found. Try another search.",
+        fuzzy: false,
+        limit: 5
+    })
+</script></div>
+            <div>
+                <article class="post-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">Sharing I2c With Non Preemptive Tasks With Improved Threa Scheduling</h2><p><time datetime="2019-10-01T00:00:00-04:00" itemprop="datePublished">
+        Oct 1, 2019
+    </time>&#8239;&#8239;|&#8239;</p></header>
+
+    <div class="post-body itemprop=" articleBody">
+        <p>In this project, the accelerator and the LEDs were peripherals that shared the same I2C bus for communication. The Accelerator movement in x-y-z directions lit rgb respectively.</p>
+
+<p>Initially the code used Busy-Wait for the accelerator which prevents the CPU from doing other tasks, thus the efficiency of operation is compromised initially.Initial code uses Busy-Wait which prevents the CPU from doing other tasks, thus the efficiency of operation is compromised initially.
+Why dit we use RTOS?</p>
+
+<ul>
+  <li>RTOS uses more memory</li>
+  <li>We may need a lightweight implementation</li>
+  <li>This could be transferred to a cheaper board</li>
+  <li>May need to add other parts of code in</li>
+  <li>RTOS may delay response, But this may not matter based on human eye
+How did we fix it: Compare performance between Blocking and FSM</li>
+  <li>First: Mode 1 - blocking (checking initial responsiveness, with Busy-Wait)</li>
+  <li>Set debug bits and connect logic analyzers to collect data on runtime of each task.</li>
+  <li>Second: Mode 2 - FSM w/ run-to-completion scheduler (Without any Busy-Wait OR RTOS)</li>
+  <li>Write/configure a FSM mode</li>
+  <li>Create CFG of task to plan FSM conversion</li>
+  <li>Configure tasks to run periodically</li>
+  <li>Create Handshake w/ I2C Msg: (init g_I2C_Msg.Status = IDLE)</li>
+  <li>if Status is IDLE return unless Command is READ or WRITE.</li>
+  <li>Update Status to READING or WRITING if needed.</li>
+  <li>Begin I2C &amp; begin FSM.</li>
+  <li>Update Status to READ_COMPLETE or WRITE_COMPLETE</li>
+</ul>
+
+<p>FSM Implementation</p>
+<ul>
+  <li>Breaks down the TMS into small pieces that can communicate within each other using the shared data structure (g_I2C_Msg). In Busy wait we have to run unnecessary functionality too. But in an FSM functionality which requires the processor is given the priority.</li>
+</ul>
+
+<p>Message format – 7-bit address followed by data:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Slave Device Address</td>
+      <td> </td>
+      <td> </td>
+      <td>Data Byte</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>AD7 AD6 AD5 AD4 AD3 AD2 AD1</td>
+      <td>R/W</td>
+      <td>ACK</td>
+      <td>D7 D6 D5 D4 D3 D2 D1 D0</td>
+      <td>ACK</td>
+      <td>Stop</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div><div id="author">
+    <h3>About
+        Rohin Razdan</h3>
+    <img src="assets/profile.png" alt="Photo of Rohin Razdan"/>
+    <p>My Bio Here</p>
+</div><a class="u-url" href="/Sharing-I2C-with-non-preemptive-tasks-with-improved-threa-scheduling" hidden></a>
+</article><hr />
+
+<footer class="footer">
+    <div class="pure-menu pure-menu-horizontal">
+        <ul>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="/">
+                    <i class="fas fa-home"></i>
+                    <span class="md-display">Home</span>
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://github.com/razdanrohin">
+                    <i class="fab fa-github"></i>
+                    <span class="md-display">GitHub</span>
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="mailto:rrazdan2@ncsu.edu">
+                    <i class="fas fa-paper-plane"></i>
+                    <span class="md-display">E-mail</span>
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://github.com/https://github.com/razdanrohin/portfolio">
+                    <i class="fas fa-code"></i>
+                    <span class="md-display">Source Code</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
