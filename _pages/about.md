@@ -1,32 +1,23 @@
 ---
 layout: page
-title: About the Purelog Theme
+title: Who am I?
 permalink: /about/
 ---
+Hey!
 
-**Purelog** is a responsive, sidebar theme for the popular JAMstack generator Jekyll that only uses the minimal [**Pure.css** framework](https://github.com/pure-css/pure) (hence the name!), while still following the best practices possible for accessibility and search-engine optimization.
+Thanks for visiting my blog! 
 
-I created this after finishing [Watery](https://github.com/brennanbrown/watery) (which this theme is built off of), as a way to add more functionality and design while still remaining as lightweight as possible.
+I’m **Rohin**, presently a graduate student in Electrical and Computer Engineering at North Carolina State University. I am currently a research assistant under Dr. Amro Awad working with Sandia National Labs, structural simulation toolkit development team. I completed my undergraduate studies from the University of Mumbai, India, majoring in Electronics and Telecommunication Engineering. I started this website to help me document my work and share the wonderful things that I have learnt so that others will be able to benefit from my work.
 
-This project is aimed towards those looking for an interesting theme for Jekyll that has features that aren't found commonly elsewhere, which I'll list down below.
+My interests lie with working on embedded systems and learning ways to improve the system on chip architectures. As a child, I would spend hours taking things apart, wondering how they work and then putting them back together, though sometimes that did not work. This spurred my interest in hardware engineering and contributing to the  devices that can help reduce human effort and make human machine interaction rather less of a chore.
 
-### Features
+I also consider myself a musician who loves to produce and sing for personal harmony. I always try to learn some new riffs or chords, as they help me with memorizing and associating concepts, while I practice guitar and think!
 
-Here are a few interesting features of this Jekyll theme:
+When I’m not at work or in school, I can be found either wandering near lakes/trails or in a music store.
 
-- A fully customizable and empty `_BLANK_config.yml` to make getting up-and-running easy.
-- A speedy, on-site search function using [Simply Jekyll Search](https://github.com/christian-fei/Simple-Jekyll-Search).
-- Custom collections for different types of material (note-taking, journal writing, etc.)
-- An auto-generating archive page that displays all entries from _all_ collections.
-- Having a `_pages` collection for easier organization.
-- An author bio at the end of each post. (Located in `_inclues/author.html`)
-- Full Rouge support for syntax highlighting. (Currently using `base16.solarized.light`)
-- Auto-generated RSS feed, sitemap, accessibility features, and search-engine optimization.
+For those who are interested, here is my resume with some projects I was involved in through my graduate coursework: [resume](https://docs.google.com/document/d/11xV7tnra9QUOOrdAAJlCvjKIDM_P17kFQPaVnOdN_IY/edit?usp=sharing).
 
-You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am available on LinkedIn. Click [here](https://www.linkedin.com/in/rohin-razdan/).
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I’ve some code hosted here on [github](https://github.com/razdanrohin). I have some projects in private, though their description is available in my blog! If you would like to know more, you can always [email](mailto:rrazdan2@ncsu.edu) me!
 
-[jekyll-organization]: https://github.com/jekyll
